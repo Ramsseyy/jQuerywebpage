@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.structure.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.theme.css">
+    <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    
+<!--NavBar-->
+<div class="navbar">
+        <a href="#C1">Home</a>
+        <a href="#C2">About</a>
+        <a href="#C3">More</a>
+        <a href="info">Info</a>
+</div>
+
+<!--Image-->
+<img id="img" src="Images/PinkHill.jfif">
+
+<!--Text-Image-->
+<div class="text">
+    <h1> This world is cruel, <br>but I still love you</h1>
+</div>
+
+
+<!--Accordion-->
+<div id="accordion">
+    <h3 id="C1">Project Detail</h3>
+    <div>
+      <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+    </div>
+    <h3 id="C2">How to not come off strong</h3>
+    <div>
+      <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+    </div>
+    <h3 id="C3">How to hold a conversation</h3>
+    <div>
+      <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+      <ul>
+        <li>List item one</li>
+        <li>List item two</li>
+        <li>List item three</li>
+      </ul>
+    </div>
+    <h3 id="C4">How to build confidence</h3>
+    <div>
+      <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+    </div>
+  </div>
+
+  <h1 class="hello">Find a Date!!</h1>
+
+  <!--Date-->
+  <div class="container">
+  <label for="from">From</label>
+  <input type="text" id="from" name="from">
+  <label for="to">to</label>
+  <input type="text" id="to" name="to">
+  </div>
+
+  <!--Progressbar-->
+  <div id="dialog" title="File Upload">
+    <div class="progress-label">You will find love</div>
+    <div id="progressbar"></div>
+  </div>
+  <button id="downloadButton">Start Upload</button>
+
+    <style>
+    #img{
+    width: 100%;    
+    }
+/*Navbar CSS*/
+    .navbar{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content:space-evenly;
+    background-color: transparent;
+    padding: 1em;
+    transition-property:all;
+    transition-duration:0.5s;
+    font-size: 1.2em;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: black;
+}
+
+.navbar:hover{
+    background-color: #e691b0;
+    opacity: .8;
+    color: white;
+    border-radius: 4px;
+    
+}
+
+.navbar a:hover{
+    color: white;
+}
+
+/*Image text CSS*/
+.text{
+    margin-left: 250px;
+    margin-top: -550px;
+    font-family: 'Caveat', cursive;
+    font-size: 2em;
+}
+
+/*Date Picker*/
+.container{
+    padding: 200px;
+    text-align: center;
+}
+
+/*Accordion CSS*/
+#accordion{
+    margin-top: 350px;
+    font-size: 1.3em;
+}
+
+.hello{
+  text-align: center;
+}
+
+/*Progressbar CSS*/
+#progressbar {
+    margin-top: 20px;
+  }
+ 
+  .progress-label {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+ 
+  .ui-dialog-titlebar-close {
+    display: none;
+  }
+
+  .ui-widget-header {
+    background: #fad2e1;
+}
+
+.ui-widget-content {
+    background: #a2d2ff;
+}
+
+#downloadButton{
+  margin-left: 670px;
+}
+    </style>
+
+
+<script src="js/jquery-3.6.0.js"></script>
+<script src="jquery-ui/jquery-ui.js"></script>
+<script>
+
+    //Function for accordion//
+     $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+
+  //Function for Date//
+  $( function() {
+    var dateFormat = "mm/dd/yy",
+      from = $( "#from" )
+        .datepicker({
+          defaultDate: "+1w",
+          changeMonth: true,
+          numberOfMonths: 3
+        })
+        .on( "change", function() {
+          to.datepicker( "option", "minDate", getDate( this ) );
+        }),
+      to = $( "#to" ).datepicker({
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 3
+      })
+      .on( "change", function() {
+        from.datepicker( "option", "maxDate", getDate( this ) );
+      });
+ 
+    function getDate( element ) {
+      var date;
+      try {
+        date = $.datepicker.parseDate( dateFormat, element.value );
+      } catch( error ) {
+        date = null;
+      }
+ 
+      return date;
+    }
+  } );
+
+  //Function for Progressbar//
+  $( function() {
+    var progressTimer,
+      progressbar = $( "#progressbar" ),
+      progressLabel = $( ".progress-label" ),
+      dialogButtons = [{
+        text: "Cancel Download",
+        click: closeDownload
+      }],
+      dialog = $( "#dialog" ).dialog({
+        autoOpen: false,
+        closeOnEscape: false,
+        resizable: false,
+        buttons: dialogButtons,
+        open: function() {
+          progressTimer = setTimeout( progress, 2000 );
+        },
+        beforeClose: function() {
+          downloadButton.button( "option", {
+            disabled: false,
+            label: "Start Upload"
+          });
+        }
+      }),
+      downloadButton = $( "#downloadButton" )
+        .button()
+        .on( "click", function() {
+          $( this ).button( "option", {
+            disabled: true,
+            label: "You will find love"
+          });
+          dialog.dialog( "open" );
+        });
+ 
+    progressbar.progressbar({
+      value: false,
+      change: function() {
+        progressLabel.text( "Current Progress: " + progressbar.progressbar( "value" ) + "%" );
+      },
+      complete: function() {
+        progressLabel.text( "Complete!" );
+        dialog.dialog( "option", "buttons", [{
+          text: "Close",
+          click: closeDownload
+        }]);
+        $(".ui-dialog button").last().trigger( "focus" );
+      }
+    });
+ 
+    function progress() {
+      var val = progressbar.progressbar( "value" ) || 0;
+ 
+      progressbar.progressbar( "value", val + Math.floor( Math.random() * 3 ) );
+ 
+      if ( val <= 99 ) {
+        progressTimer = setTimeout( progress, 50 );
+      }
+    }
+ 
+    function closeDownload() {
+      clearTimeout( progressTimer );
+      dialog
+        .dialog( "option", "buttons", dialogButtons )
+        .dialog( "close" );
+      progressbar.progressbar( "value", false );
+      progressLabel
+        .text( "You will find love" );
+      downloadButton.trigger( "focus" );
+    }
+  } );
+
+</script>
+</body>
+</html>
+
